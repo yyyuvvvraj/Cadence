@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@300;500&display=swap");
+
+/* === AUTHENTICATION DASHBOARD PAGE STYLING === */
+
+/* Override CSS variables for dark mode */
+.dark {
+    --background: 0 0% 2%;
+    /* #050505 */
+    --foreground: 0 0% 94%;
+    /* #f0f0f0 */
+    --card: 0 0% 5%;
+    /* rgba(255,255,255,0.05) equivalent */
+    --card-foreground: 0 0% 94%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 94%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 63%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+}
+
+/* Override CSS variables for light mode */
+html:not(.dark) {
+    --background: 0 0% 100%;
+    /* #ffffff */
+    --foreground: 0 0% 4%;
+    /* #0a0a0a */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+}
+
+/* Apply theme-aware styling */
+.min-h-screen.bg-background {
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Card backgrounds with glass effect - Dark mode */
+.dark .bg-card {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Form elements - Dark mode */
+.dark input,
+.dark select,
+.dark textarea {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Form elements - Light mode */
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+    background-color: #ffffff !important;
+    color: #0a0a0a !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Table styling - Dark mode */
+.dark table thead {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark table tbody tr:hover {
+    background: rgba(0, 240, 255, 0.05) !important;
+}
+
+/* Table styling - Light mode */
+html:not(.dark) table thead {
+    background: rgba(0, 0, 0, 0.03) !important;
+}
+
+html:not(.dark) table tbody tr:hover {
+    background: rgba(6, 182, 212, 0.05) !important;
+}
+
+/* Recharts tooltips - Dark mode */
+.dark .recharts-default-tooltip {
+    background-color: #050505 !important;
+    border: 1px solid #00f0ff !important;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Recharts tooltips - Light mode */
+html:not(.dark) .recharts-default-tooltip {
+    background-color: #ffffff !important;
+    border: 1px solid #06b6d4 !important;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+/* Scrollbar customization - Dark mode */
+.dark ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #8e8e8e;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #00f0ff;
+}
+
+/* Scrollbar customization - Light mode */
+html:not(.dark) ::-webkit-scrollbar {
+    width: 8px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
+    border-radius: 4px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
