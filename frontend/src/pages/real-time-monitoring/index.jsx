@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import Header from "../../components/ui/Header";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import UserContextIndicator from "../../components/ui/UserContextIndicator";
-import AlertNotificationPanel from "../../components/ui/AlertNotificationPanel";
 import LiveEventStream from "./components/LiveEventStream";
 import MetricsDashboard from "./components/MetricsDashboard";
 import BehavioralPatternCharts from "./components/BehavioralPatternCharts";
@@ -227,9 +225,6 @@ const RealTimeMonitoring = () => {
         />
       </Helmet>
       <div className="min-h-screen bg-background">
-        <Header />
-        <AlertNotificationPanel />
-
         <main className="container mx-auto px-4 md:px-6 lg:px-8 py-6">
           <Breadcrumbs />
 
@@ -249,10 +244,9 @@ const RealTimeMonitoring = () => {
                 onClick={() => setAutoRefresh(!autoRefresh)}
                 className={`
                   flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-smooth
-                  ${
-                    autoRefresh
-                      ? "bg-success/10 text-success"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  ${autoRefresh
+                    ? "bg-success/10 text-success"
+                    : "bg-muted text-muted-foreground hover:bg-muted/80"
                   }
                 `}
               >

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../components/ui/Header";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import UserContextIndicator from "../../components/ui/UserContextIndicator";
-import AlertNotificationPanel from "../../components/ui/AlertNotificationPanel";
 import IncidentSummaryCards from "./components/IncidentSummaryCards";
 import IncidentFilters from "./components/IncidentFilters";
 import IncidentTable from "./components/IncidentTable";
 import IncidentDetailPanel from "./components/IncidentDetailPanel";
 import Button from "../../components/ui/Button";
+import "./index.css";
 
 const SecurityIncidentReports = () => {
   const [selectedIncident, setSelectedIncident] = useState(null);
@@ -614,10 +613,7 @@ const SecurityIncidentReports = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <AlertNotificationPanel />
-
+    <div className="security-incident-reports min-h-screen">
       <main className="max-w-[1920px] mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-8">
         <Breadcrumbs />
 

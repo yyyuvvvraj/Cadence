@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/ui/Header";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import UserContextIndicator from "../../components/ui/UserContextIndicator";
-import AlertNotificationPanel from "../../components/ui/AlertNotificationPanel";
 import MetricCard from "./components/MetricCard";
 import ThreatLevelIndicator from "./components/ThreatLevelIndicator";
 import SessionTable from "./components/SessionTable";
@@ -240,9 +238,6 @@ const AuthenticationDashboard = () => {
       <div className="fixed bottom-0 left-0 w-[500px] h-[500px] bg-accent-500/10 rounded-full blur-3xl opacity-20 pointer-events-none" />
 
       <div className="relative z-10">
-        <Header />
-        <AlertNotificationPanel />
-
         <main className="max-w-[1920px] mx-auto px-4 md:px-6 lg:px-8 py-6">
           <Breadcrumbs />
 

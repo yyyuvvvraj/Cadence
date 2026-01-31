@@ -13,6 +13,7 @@ import UserEnrollmentSetup from "./pages/user-enrollment-setup";
 import AdminBehavioralMonitoring from "./pages/admin/AdminBehavioralMonitoring";
 import UserDashboard from "./pages/user/UserDashboard";
 import BehavioralAuthWrapper from "./components/BehavioralAuthWrapper";
+import AppLayout from "./components/AppLayout";
 
 const Routes = () => {
   return (
@@ -24,17 +25,21 @@ const Routes = () => {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
 
-          {/* Protected Routes (with behavioral tracking) */}
+          {/* Protected Routes (with behavioral tracking and navbar) */}
           <Route path="/dashboard" element={
             <BehavioralAuthWrapper>
-              <AuthenticationDashboard />
+              <AppLayout>
+                <AuthenticationDashboard />
+              </AppLayout>
             </BehavioralAuthWrapper>
           } />
           <Route
             path="/authentication-dashboard"
             element={
               <BehavioralAuthWrapper>
-                <AuthenticationDashboard />
+                <AppLayout>
+                  <AuthenticationDashboard />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -42,7 +47,9 @@ const Routes = () => {
             path="/security-incident-reports"
             element={
               <BehavioralAuthWrapper>
-                <SecurityIncidentReports />
+                <AppLayout>
+                  <SecurityIncidentReports />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -50,7 +57,9 @@ const Routes = () => {
             path="/behavioral-analytics"
             element={
               <BehavioralAuthWrapper>
-                <BehavioralAnalytics />
+                <AppLayout>
+                  <BehavioralAnalytics />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -58,7 +67,9 @@ const Routes = () => {
             path="/user-profile-management"
             element={
               <BehavioralAuthWrapper>
-                <UserProfileManagement />
+                <AppLayout>
+                  <UserProfileManagement />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -66,7 +77,9 @@ const Routes = () => {
             path="/real-time-monitoring"
             element={
               <BehavioralAuthWrapper>
-                <RealTimeMonitoring />
+                <AppLayout>
+                  <RealTimeMonitoring />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -74,7 +87,9 @@ const Routes = () => {
             path="/user-enrollment-setup"
             element={
               <BehavioralAuthWrapper>
-                <UserEnrollmentSetup />
+                <AppLayout>
+                  <UserEnrollmentSetup />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -84,7 +99,9 @@ const Routes = () => {
             path="/admin/behavioral-monitoring"
             element={
               <BehavioralAuthWrapper userRole="admin">
-                <AdminBehavioralMonitoring />
+                <AppLayout>
+                  <AdminBehavioralMonitoring />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />
@@ -92,7 +109,9 @@ const Routes = () => {
             path="/user/dashboard"
             element={
               <BehavioralAuthWrapper userRole="user">
-                <UserDashboard />
+                <AppLayout>
+                  <UserDashboard />
+                </AppLayout>
               </BehavioralAuthWrapper>
             }
           />

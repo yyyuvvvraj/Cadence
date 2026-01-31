@@ -55,12 +55,16 @@ const Login = () => {
       formData.password === ADMIN_CREDENTIALS.password
     ) {
       // Admin login
+      localStorage.setItem("username", formData.username);
+      localStorage.setItem("userRole", "admin");
       navigate("/admin/behavioral-monitoring");
     } else if (
       formData.username === USER_CREDENTIALS.username &&
       formData.password === USER_CREDENTIALS.password
     ) {
       // User login
+      localStorage.setItem("username", formData.username);
+      localStorage.setItem("userRole", "user");
       navigate("/user/dashboard");
     } else {
       // Invalid credentials
