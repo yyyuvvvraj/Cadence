@@ -2,9 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const session = require("express-session");
+const passport = require("passport");
 
 dotenv.config();
+
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/auth");
 
 connectDB();
 
@@ -12,10 +15,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // your frontend
+    origin: ["http://localhost:3000"],
     credentials: true,
   }),
 );
+
 app.use(express.json());
 
 app.use(
@@ -26,17 +30,25 @@ app.use(
   }),
 );
 
+// Passport config
+require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Routes
 app.get("/", (req, res) => {
   res.send("Backend running 🚀");
 });
 
+app.use("/auth", authRoutes);
+
+// Start server LAST
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
-const passport = require("passport");
-require("./config/passport");
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use("/auth", require("./routes/auth"));
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Cadence backend is running 🚀",
+  });
+});

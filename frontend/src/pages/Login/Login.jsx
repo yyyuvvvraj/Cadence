@@ -77,11 +77,11 @@ const Login = () => {
 
   const handleOAuthLogin = (provider) => {
     if (provider === "Google") {
-      window.location.href = "https://cadence-backend.onrender.com/auth/google";
+      window.location.href = "https://cadencebackend.onrender.com/auth/google";
     }
 
     if (provider === "GitHub") {
-      window.location.href = "https://cadence-backend.onrender.com/auth/github";
+      window.location.href = "https://cadencebackend.onrender.com/auth/github";
     }
   };
 
