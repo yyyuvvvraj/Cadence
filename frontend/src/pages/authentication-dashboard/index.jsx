@@ -7,6 +7,7 @@ import ThreatLevelIndicator from "./components/ThreatLevelIndicator";
 import SessionTable from "./components/SessionTable";
 import BehavioralVisualization from "./components/BehavioralVisualization";
 import FilterPanel from "./components/FilterPanel";
+import "./AuthenticationDashboard.css";
 
 const AuthenticationDashboard = () => {
   const navigate = useNavigate();

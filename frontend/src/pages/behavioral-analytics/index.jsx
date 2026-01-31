@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import UserContextIndicator from "../../components/ui/UserContextIndicator";
@@ -7,6 +7,7 @@ import TrendChart from "./components/TrendChart";
 import MetricsDataTable from "./components/MetricsDataTable";
 import StatisticalSummary from "./components/StatisticalSummary";
 import ComparisonTool from "./components/ComparisonTool";
+import "./BehavioralAnalytics.css";
 
 const BehavioralAnalytics = () => {
   const navigate = useNavigate();
