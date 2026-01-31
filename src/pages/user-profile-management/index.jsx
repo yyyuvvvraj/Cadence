@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import './index.css';
 
 const UserProfileManagement = () => {
+  const [username, setUsername] = useState('USER');
+  const [userRole, setUserRole] = useState('User');
+
+  useEffect(() => {
+    // Get username from localStorage
+    const storedUsername = localStorage.getItem('username') || 'user';
+    const storedRole = localStorage.getItem('userRole') || 'user';
+
+    setUsername(storedUsername.toUpperCase());
+    setUserRole(storedRole === 'admin' ? 'Admin' : 'User');
+  }, []);
   return (
     <>
       <Helmet>
@@ -20,12 +31,12 @@ const UserProfileManagement = () => {
           <header className="profile-hero">
             <div className="profile-id-group">
               <div className="profile-status">NETWORK ACTIVE // SYNCED</div>
-              <h1 className="profile-name">ALEX.K<br />STRATA_01</h1>
+              <h1 className="profile-name">{username}<br />STRATA_01</h1>
             </div>
             <div className="profile-meta-grid">
               <div className="meta-item">
                 <div className="meta-label">Access Level</div>
-                <div className="meta-value">Tier 04 / Admin</div>
+                <div className="meta-value">Tier 04 / {userRole}</div>
               </div>
               <div className="meta-item">
                 <div className="meta-label">Node Origin</div>
