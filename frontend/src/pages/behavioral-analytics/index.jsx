@@ -7,6 +7,7 @@ import TrendChart from "./components/TrendChart";
 import MetricsDataTable from "./components/MetricsDataTable";
 import StatisticalSummary from "./components/StatisticalSummary";
 import ComparisonTool from "./components/ComparisonTool";
+import "./BehavioralAnalytics.css";
 
 const BehavioralAnalytics = () => {
   const navigate = useNavigate();

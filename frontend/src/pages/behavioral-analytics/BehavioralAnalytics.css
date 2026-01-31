@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@300;500&display=swap");
+
+/* === BEHAVIORAL ANALYTICS - KINETIC DARK THEME === */
+
+:root {
+    --kinetic-bg: #050505;
+    --chrome-light: #f0f0f0;
+    --chrome-mid: #8e8e8e;
+    --chrome-dark: #2a2a2a;
+    --accent: #00f0ff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Force dark background for the entire page */
+body,
+#root,
+.min-h-screen {
+    background: var(--kinetic-bg) !important;
+    color: var(--chrome-light) !important;
+    font-family: var(--font-sans) !important;
+}
+
+/* Dark theme for all cards */
+.bg-card,
+[class*="bg-card"] {
+    background: var(--glass) !important;
+    backdrop-filter: blur(40px) !important;
+    border-color: var(--border) !important;
+}
+
+/* Dark theme for inputs and selects */
+input,
+select,
+textarea {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--border) !important;
+    color: var(--chrome-light) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--chrome-mid) !important;
+}
+
+/* Dark theme for text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--chrome-light) !important;
+    font-family: var(--font-sans) !important;
+}
+
+.text-foreground {
+    color: var(--chrome-light) !important;
+}
+
+.text-muted-foreground {
+    color: var(--chrome-mid) !important;
+}
+
+/* Borders */
+.border-border,
+[class*="border-"] {
+    border-color: var(--border) !important;
+}
+
+/* Tables */
+table {
+    background: transparent !important;
+}
+
+table thead {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+table tbody tr:hover {
+    background: rgba(0, 240, 255, 0.05) !important;
+}
+
+/* Buttons */
+button {
+    font-family: var(--font-mono) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--chrome-mid);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Recharts styling */
+.recharts-default-tooltip {
+    background: var(--kinetic-bg) !important;
+    border: 1px solid var(--accent) !important;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}

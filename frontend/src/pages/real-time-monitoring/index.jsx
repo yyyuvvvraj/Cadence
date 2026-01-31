@@ -10,6 +10,7 @@ import FilterControls from "./components/FilterControls";
 import QuickActions from "./components/QuickActions";
 import AlertConfiguration from "./components/AlertConfiguration";
 import Icon from "../../components/AppIcon";
+import "./RealTimeMonitoring.css";
 
 const RealTimeMonitoring = () => {
   const navigate = useNavigate();
