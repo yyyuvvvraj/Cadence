@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/ui/Header";
 import Breadcrumbs from "../../components/ui/Breadcrumbs";
 import UserContextIndicator from "../../components/ui/UserContextIndicator";
-import AlertNotificationPanel from "../../components/ui/AlertNotificationPanel";
 import AnalyticsFilters from "./components/AnalyticsFilters";
 import TrendChart from "./components/TrendChart";
 import MetricsDataTable from "./components/MetricsDataTable";
@@ -236,9 +234,6 @@ const BehavioralAnalytics = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <AlertNotificationPanel />
-
       <main className="max-w-[1920px] mx-auto px-4 md:px-6 lg:px-8 py-6">
         <Breadcrumbs />
 
