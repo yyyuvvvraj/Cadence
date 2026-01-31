@@ -1,0 +1,488 @@
+:root {
+    /* Dark Mode (Default) */
+    --bg: #030303;
+    --obsidian: #0a0a0a;
+    --obsidian-light: #161616;
+    --accent: #00f0ff;
+    --chrome: #f0f0f0;
+    --muted: #4a4a4a;
+    --glass: rgba(255, 255, 255, 0.02);
+    --border: rgba(255, 255, 255, 0.08);
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --transition: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Light Mode Variables */
+.user-dashboard-strata.light {
+    --bg: #f5f5f5;
+    --obsidian: #ffffff;
+    --obsidian-light: #f0f0f0;
+    --accent: #0066cc;
+    --chrome: #1a1a1a;
+    --muted: #666666;
+    --glass: rgba(0, 0, 0, 0.02);
+    --border: rgba(0, 0, 0, 0.1);
+}
+
+.user-dashboard-strata.light .background-engine {
+    background: radial-gradient(circle at 50% 50%, #e8e8e8, #f5f5f5);
+}
+
+.user-dashboard-strata.light .strata-line {
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+}
+
+.user-dashboard-strata.light .brand-hex {
+    background: var(--accent);
+    box-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
+}
+
+.user-dashboard-strata.light .hero-text h2 {
+    opacity: 0.05;
+    color: #000;
+}
+
+.user-dashboard-strata.light .strata-menu {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.user-dashboard-strata.light .strata-column {
+    background: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-dashboard-strata.light .strata-column:hover {
+    background: #f8f8f8;
+}
+
+.user-dashboard-strata.light .logout-btn-nav {
+    border-color: #999;
+    color: #666;
+}
+
+.user-dashboard-strata.light .logout-btn-nav:hover {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.user-dashboard-strata.light .theme-toggle-btn {
+    border-color: #999;
+    color: #333;
+}
+
+.user-dashboard-strata.light .theme-toggle-btn:hover {
+    border-color: #0066cc;
+    color: #0066cc;
+    background: rgba(0, 102, 204, 0.05);
+}
+
+.user-dashboard-strata.light .nav-trigger {
+    color: #333;
+}
+
+.user-dashboard-strata.light .nav-trigger:hover {
+    color: #0066cc;
+}
+
+.user-dashboard-strata.light .burger {
+    background: #333;
+}
+
+.user-dashboard-strata.light .burger-accent {
+    background: #0066cc;
+}
+
+.user-dashboard-strata.light .logout-btn-overlay {
+    border-color: #999;
+    color: #666;
+}
+
+.user-dashboard-strata.light .logout-btn-overlay:hover {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.user-dashboard-strata.light .strata-id {
+    color: #0066cc;
+}
+
+.user-dashboard-strata.light .strata-title {
+    color: #1a1a1a;
+}
+
+.user-dashboard-strata.light .strata-desc {
+    color: #666;
+}
+
+.user-dashboard-strata.light .strata-column:hover .strata-desc {
+    color: #333;
+}
+
+.user-dashboard-strata {
+    background: var(--bg);
+    color: var(--chrome);
+    font-family: var(--font-sans);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* --- KINETIC BACKGROUND --- */
+.background-engine {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, #0d0d0d, #000);
+    overflow: hidden;
+}
+
+.strata-line {
+    position: absolute;
+    width: 200%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    transform: rotate(-45deg);
+    animation: moveStrata 10s linear infinite;
+}
+
+@keyframes moveStrata {
+    0% {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    100% {
+        transform: translate(0%, 0%) rotate(-45deg);
+    }
+}
+
+/* --- NAVIGATION BAR --- */
+.top-nav {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    position: relative;
+}
+
+.brand-zone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-hex {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.brand-name {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout-btn-nav {
+    background: none;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logout-btn-nav:hover {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.05);
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--muted);
+    color: var(--chrome);
+    padding: 8px;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(0, 240, 255, 0.05);
+    transform: rotate(180deg);
+}
+
+.theme-toggle-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.nav-trigger {
+    background: none;
+    border: none;
+    color: var(--chrome);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.nav-trigger:hover {
+    color: var(--accent);
+}
+
+.burger {
+    width: 20px;
+    height: 2px;
+    background: var(--chrome);
+    position: relative;
+}
+
+.burger-accent {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 12px;
+    height: 2px;
+    background: var(--accent);
+    transition: var(--transition);
+}
+
+.nav-trigger:hover .burger-accent {
+    width: 20px;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.dashboard-preview {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-text h2 {
+    font-size: 12vw;
+    font-weight: 700;
+    line-height: 0.8;
+    opacity: 0.03;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+/* --- STRATA MENU OVERLAY --- */
+.strata-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 90;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s var(--transition);
+}
+
+.strata-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.strata-column {
+    flex: 1;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    transition: transform 0.8s var(--transition), background 0.4s ease, flex 0.4s ease;
+    transform: translateY(100%);
+    overflow: hidden;
+    background: var(--obsidian);
+    cursor: pointer;
+}
+
+.strata-menu.active .strata-column {
+    transform: translateY(0);
+}
+
+.strata-column:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.strata-column:nth-child(3) {
+    transition-delay: 0.1s;
+}
+
+.strata-column:nth-child(4) {
+    transition-delay: 0.15s;
+}
+
+.strata-column:nth-child(5) {
+    transition-delay: 0.2s;
+}
+
+.strata-column:nth-child(6) {
+    transition-delay: 0.25s;
+}
+
+.strata-column:nth-child(7) {
+    transition-delay: 0.3s;
+}
+
+.strata-column:hover {
+    background: var(--obsidian-light);
+    flex: 1.5;
+}
+
+.strata-id {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.strata-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.strata-desc {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 200px;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.strata-column:hover .strata-desc {
+    color: var(--chrome);
+}
+
+/* --- LOGOUT BUTTON IN OVERLAY --- */
+.logout-btn-overlay {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: none;
+    border: 1px solid var(--muted);
+    color: var(--muted);
+    padding: 10px 20px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    z-index: 101;
+    cursor: pointer;
+}
+
+.logout-btn-overlay:hover {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+    background: rgba(255, 77, 77, 0.05);
+}
+
+/* --- DEV INDICATOR --- */
+.dev-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #00f0ff;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 9999;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .strata-menu {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .strata-column {
+        height: auto;
+        min-height: 150px;
+        transform: translateX(-100%);
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .strata-menu.active .strata-column {
+        transform: translateX(0);
+    }
+
+    .strata-title {
+        font-size: 24px;
+    }
+
+    .strata-desc {
+        max-width: 100%;
+    }
+
+    .hero-text h2 {
+        font-size: 20vw;
+    }
+
+    .top-nav {
+        padding: 0 20px;
+    }
+
+    .logout-btn-overlay {
+        top: 20px;
+        right: 20px;
+        font-size: 9px;
+        padding: 8px 12px;
+    }
+}

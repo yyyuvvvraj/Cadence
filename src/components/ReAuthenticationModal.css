@@ -1,0 +1,310 @@
+.reauth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.reauth-modal {
+    width: 90%;
+    max-width: 500px;
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.reauth-topography {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-radial-gradient(circle at 50% 50%,
+            transparent 0,
+            transparent 30px,
+            rgba(255, 255, 255, 0.02) 31px,
+            transparent 32px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.reauth-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.reauth-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    color: #00f0ff;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.reauth-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.reauth-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.reauth-reason {
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.reason-icon {
+    font-size: 18px;
+    color: #ffa500;
+}
+
+.reauth-reason p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #f0f0f0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.reauth-timer {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.timer-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px;
+    position: relative;
+}
+
+.timer-circle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.timer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #00f0ff;
+}
+
+.timer-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.reauth-form {
+    position: relative;
+    z-index: 2;
+}
+
+.reauth-input-group {
+    margin-bottom: 24px;
+}
+
+.reauth-input-group label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+}
+
+.reauth-input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    padding: 12px 16px;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.reauth-input-group input:focus {
+    border-color: #00f0ff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.reauth-input-group input::placeholder {
+    color: #8e8e8e;
+    opacity: 0.5;
+}
+
+.reauth-error {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #ff6b6b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reauth-submit {
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.reauth-submit:hover:not(:disabled) {
+    background: #00f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+}
+
+.reauth-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.reauth-submit.verifying {
+    background: #00f0ff;
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.reauth-footer {
+    margin-top: 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.reauth-footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #8e8e8e;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .reauth-modal {
+        padding: 30px 24px;
+    }
+
+    .reauth-title {
+        font-size: 20px;
+    }
+
+    .timer-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .timer-text {
+        font-size: 20px;
+    }
+}

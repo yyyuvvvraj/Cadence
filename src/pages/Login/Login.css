@@ -1,0 +1,583 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@300;500&display=swap");
+
+/* === GLOBAL RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important;
+}
+
+/* === OPTIMIZED CUSTOM CURSOR === */
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: exclusion;
+    left: -20px;
+    top: -20px;
+    will-change: transform;
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    left: -2px;
+    top: -2px;
+    will-change: transform;
+}
+
+:root {
+    --kinetic-bg: #050505;
+    --chrome-light: #f0f0f0;
+    --chrome-mid: #8e8e8e;
+    --chrome-dark: #2a2a2a;
+    --accent: #00f0ff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Scope cursor restriction to login page only */
+.kinetic-login-container * {
+    cursor: none !important;
+}
+
+.kinetic-login-container {
+    background: var(--kinetic-bg);
+    color: var(--chrome-light);
+    font-family: var(--font-sans);
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* --- CUSTOM CURSOR --- */
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+.custom-cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+/* --- KINETIC MERCURY BACKGROUND --- */
+.mercury-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    filter: url(#gooey) contrast(1.2);
+    background: radial-gradient(circle at 50% 50%, #111, #000);
+}
+
+.mercury-blob {
+    position: absolute;
+    background: linear-gradient(135deg, #fff, #888, #444);
+    border-radius: 50%;
+    filter: blur(20px);
+    opacity: 0.6;
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    left: 10%;
+    top: 20%;
+    animation-duration: 25s;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    left: 60%;
+    top: 50%;
+    animation-delay: -5s;
+    animation-duration: 18s;
+}
+
+.blob-3 {
+    width: 500px;
+    height: 500px;
+    left: 30%;
+    top: -10%;
+    animation-delay: -12s;
+    animation-duration: 30s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(20vw, 15vh) scale(1.5) rotate(180deg);
+    }
+}
+
+/* --- MAIN CONTAINER --- */
+.kinetic-app-container {
+    width: 100%;
+    max-width: 1100px;
+    height: 700px;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    background: var(--glass);
+    backdrop-filter: blur(40px);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TOPOGRAPHY OVERLAY --- */
+.topography-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-radial-gradient(circle at 50% 50%,
+            transparent 0,
+            transparent 40px,
+            rgba(255, 255, 255, 0.03) 41px,
+            transparent 42px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- LEFT PANEL: BRANDING --- */
+.kinetic-brand-panel {
+    flex: 1.2;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.brand-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--chrome-mid);
+}
+
+.kinetic-brand-title {
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    background: linear-gradient(to bottom, #fff 30%, #444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.brand-footer {
+    display: flex;
+    gap: 20px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+    display: inline-block;
+    margin-right: 8px;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+/* --- RIGHT PANEL: FORMS --- */
+.kinetic-form-panel {
+    flex: 1;
+    padding: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+}
+
+.form-toggle {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    display: flex;
+    gap: 20px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--chrome-mid);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+    cursor: none;
+    padding: 0;
+}
+
+.toggle-btn.active {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.toggle-btn:hover {
+    color: var(--chrome-light);
+}
+
+.kinetic-auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.kinetic-input-group {
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    transition: 0.3s;
+}
+
+.kinetic-input-group:focus-within {
+    border-bottom-color: var(--chrome-light);
+}
+
+.kinetic-input-group label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 0.1em;
+}
+
+.kinetic-input-group input {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 18px;
+    outline: none;
+}
+
+.kinetic-input-group input::placeholder {
+    color: var(--chrome-mid);
+    opacity: 0.5;
+}
+
+/* Error Message */
+.login-error {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #ff6b6b;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.error-icon {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* --- BIOMETRIC BUTTON --- */
+.biometric-trigger {
+    margin-top: 20px;
+    height: 120px;
+    width: 100%;
+    background: linear-gradient(145deg, #111, #222);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    cursor: none;
+}
+
+.biometric-trigger:hover {
+    border-color: var(--chrome-mid);
+    background: linear-gradient(145deg, #181818, #2a2a2a);
+}
+
+.biometric-trigger.scanning {
+    background: var(--chrome-light);
+    border-color: var(--chrome-light);
+}
+
+.biometric-trigger.scanning svg {
+    fill: #000;
+}
+
+.biometric-trigger.scanning span {
+    color: #000;
+}
+
+.biometric-trigger svg {
+    width: 40px;
+    fill: var(--chrome-mid);
+    transition: 0.4s;
+}
+
+.biometric-trigger:hover svg {
+    fill: #fff;
+    transform: scale(1.1);
+}
+
+.biometric-trigger span {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--chrome-mid);
+    transition: 0.3s;
+}
+
+/* --- SUBMIT BUTTON --- */
+.kinetic-submit-btn {
+    height: 50px;
+    background: #fff;
+    color: #000;
+    border: none;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+    cursor: none;
+    font-size: 12px;
+}
+
+.kinetic-submit-btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.3);
+}
+
+/* --- OAUTH DIVIDER --- */
+.oauth-divider {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.oauth-divider::before,
+.oauth-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--border);
+}
+
+.oauth-divider::before {
+    left: 0;
+}
+
+.oauth-divider::after {
+    right: 0;
+}
+
+.oauth-divider span {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: transparent;
+    padding: 0 10px;
+}
+
+/* --- OAUTH BUTTONS --- */
+.oauth-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.oauth-btn {
+    flex: 1;
+    height: 45px;
+    background: linear-gradient(145deg, #111, #1a1a1a);
+    border: 1px solid var(--border);
+    color: var(--chrome-light);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.oauth-btn:hover {
+    background: linear-gradient(145deg, #1a1a1a, #222);
+    border-color: var(--chrome-mid);
+    transform: translateY(-1px);
+}
+
+.oauth-btn svg {
+    flex-shrink: 0;
+}
+
+/* --- BIO NOTE --- */
+.bio-note {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--chrome-mid);
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 900px) {
+    .kinetic-login-container * {
+        cursor: auto !important;
+    }
+
+    .custom-cursor,
+    .custom-cursor-dot {
+        display: none;
+    }
+
+    .kinetic-app-container {
+        flex-direction: column;
+        height: auto;
+        margin: 20px;
+        max-width: calc(100vw - 40px);
+    }
+
+    .kinetic-brand-panel {
+        padding: 40px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .kinetic-brand-title {
+        font-size: 48px;
+    }
+
+    .kinetic-form-panel {
+        padding: 40px;
+    }
+
+    .form-toggle {
+        top: 20px;
+        right: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .kinetic-brand-title {
+        font-size: 36px;
+    }
+
+    .kinetic-brand-panel,
+    .kinetic-form-panel {
+        padding: 30px;
+    }
+
+    .form-toggle {
+        right: 30px;
+    }
+
+    .biometric-trigger {
+        height: 100px;
+    }
+
+    .biometric-trigger svg {
+        width: 32px;
+    }
+
+    .oauth-buttons {
+        flex-direction: column;
+    }
+}
