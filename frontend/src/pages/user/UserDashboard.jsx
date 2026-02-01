@@ -1,42 +1,38 @@
-import React, { useEffect } from 'react';
-import { useBehavioralAuth } from '../../contexts/BehavioralAuthContext';
-import './UserDashboard.css';
+import React from "react";
+import { useBehavioralAuth } from "../../contexts/BehavioralAuthContext";
+import "./UserDashboard.css";
+import PageTransition from "../../components/PageTransition";
 
 const UserDashboard = () => {
-    const { sessionTrustLevel } = useBehavioralAuth();
+  const { sessionTrustLevel } = useBehavioralAuth();
 
-    return (
-        <div className="user-dashboard-strata">
-            {/* Background Engine */}
-            <div className="background-engine">
-                {[...Array(20)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="strata-line"
-                        style={{
-                            top: `${i * 10}%`,
-                            animationDelay: `${i * 0.5}s`
-                        }}
-                    />
-                ))}
+  return (
+    <PageTransition>
+      <div className="user-dashboard-strata">
+        <div className="dashboard-preview">
+          <h1>System Status</h1>
+          <h2>Secure</h2>
+
+          <div className="dashboard-cards">
+            <div className="dash-card">
+              <h3>Trust Level</h3>
+              <p>{sessionTrustLevel ?? "High"}</p>
             </div>
 
-            {/* Main Content */}
-            <main className="dashboard-preview">
-                <div className="hero-text">
-                    <h2>System</h2>
-                    <h2>Secure</h2>
-                </div>
-            </main>
+            <div className="dash-card">
+              <h3>Behavior Monitoring</h3>
+              <p>Active</p>
+            </div>
 
-            {/* Dev Indicator */}
-            {process.env.NODE_ENV === 'development' && (
-                <div className="dev-indicator">
-                    Trust Level: {sessionTrustLevel}
-                </div>
-            )}
+            <div className="dash-card">
+              <h3>Last Login</h3>
+              <p>Just Now</p>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </PageTransition>
+  );
 };
 
 export default UserDashboard;

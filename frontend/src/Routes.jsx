@@ -14,6 +14,12 @@ import AdminBehavioralMonitoring from "./pages/admin/AdminBehavioralMonitoring";
 import UserDashboard from "./pages/user/UserDashboard";
 import BehavioralAuthWrapper from "./components/BehavioralAuthWrapper";
 import AppLayout from "./components/AppLayout";
+import UserBehaviorLive from "./pages/user/UserBehaviorLive";
+import UserAuthHistory from "./pages/user/UserAuthHistory";
+import UserBehaviorProfile from "./pages/user/UserBehaviorProfile";
+import UserSecurityAlerts from "./pages/user/UserSecurityAlerts";
+import UserSessions from "./pages/user/UserSessions";
+import UserSettings from "./pages/user/UserSettings";
 
 const Routes = () => {
   return (
@@ -26,13 +32,16 @@ const Routes = () => {
           <Route path="/login" element={<Login />} />
 
           {/* Protected Routes (with behavioral tracking and navbar) */}
-          <Route path="/dashboard" element={
-            <BehavioralAuthWrapper>
-              <AppLayout>
-                <AuthenticationDashboard />
-              </AppLayout>
-            </BehavioralAuthWrapper>
-          } />
+          <Route
+            path="/dashboard"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <AuthenticationDashboard />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
           <Route
             path="/authentication-dashboard"
             element={
@@ -111,6 +120,71 @@ const Routes = () => {
               <BehavioralAuthWrapper userRole="user">
                 <AppLayout>
                   <UserDashboard />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+          <Route
+            path="/user/behavior-live"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserBehaviorLive />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+
+          <Route
+            path="/user/auth-history"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserAuthHistory />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+
+          <Route
+            path="/user/behavior-profile"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserBehaviorProfile />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+
+          <Route
+            path="/user/security-alerts"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserSecurityAlerts />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+
+          <Route
+            path="/user/sessions"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserSessions />
+                </AppLayout>
+              </BehavioralAuthWrapper>
+            }
+          />
+
+          <Route
+            path="/user/settings"
+            element={
+              <BehavioralAuthWrapper>
+                <AppLayout>
+                  <UserSettings />
                 </AppLayout>
               </BehavioralAuthWrapper>
             }
