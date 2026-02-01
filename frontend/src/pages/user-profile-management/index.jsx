@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useDarkMode } from '../../contexts/DarkModeContext';
 import './index.css';
 
 const UserProfileManagement = () => {
   const [username, setUsername] = useState('USER');
   const [userRole, setUserRole] = useState('User');
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     // Get username from localStorage
@@ -24,7 +26,7 @@ const UserProfileManagement = () => {
         />
       </Helmet>
 
-      <div className="tectonic-profile-page">
+      <div className="tectonic-profile-page" data-theme={isDarkMode ? 'dark' : 'light'}>
         <div className="noise"></div>
 
         <main className="tectonic-container">
