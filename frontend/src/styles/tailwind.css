@@ -9,88 +9,162 @@
 @layer base {
   :root {
     /* Modern Color Palette - Light Mode */
-    --color-primary: #06b6d4;
-    --color-primary-foreground: #ffffff;
+    --primary: 187 100% 42%;
+    /* #06b6d4 */
+    --primary-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-secondary: #a855f7;
-    --color-secondary-foreground: #ffffff;
+    --secondary: 271 91% 65%;
+    /* #a855f7 */
+    --secondary-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-accent: #ec4899;
-    --color-accent-foreground: #ffffff;
+    --accent: 330 81% 60%;
+    /* #ec4899 */
+    --accent-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-background: #ffffff;
-    --color-foreground: #0f172a;
+    --background: 210 40% 98%;
+    /* #f8fafc - Light gray background */
+    --foreground: 217 33% 17%;
+    /* #0f172a */
 
-    --color-card: #f8fafc;
-    --color-card-foreground: #1e293b;
+    --card: 0 0% 100%;
+    /* #ffffff - White cards for contrast */
+    --card-foreground: 215 25% 27%;
+    /* #1e293b */
 
-    --color-popover: #ffffff;
-    --color-popover-foreground: #0f172a;
+    --popover: 0 0% 100%;
+    /* #ffffff */
+    --popover-foreground: 217 33% 17%;
+    /* #0f172a */
 
-    --color-muted: #f1f5f9;
-    --color-muted-foreground: #64748b;
+    --muted: 210 40% 96%;
+    /* #f1f5f9 */
+    --muted-foreground: 215 16% 47%;
+    /* #64748b */
 
-    --color-border: #e2e8f0;
-    --color-input: #f8fafc;
-    --color-ring: #06b6d4;
+    --border: 214 32% 85%;
+    /* #cbd5e1 - More visible borders */
+    --input: 0 0% 100%;
+    /* #ffffff - White inputs */
+    --ring: 187 100% 42%;
+    /* #06b6d4 */
 
-    --color-success: #22c55e;
-    --color-success-foreground: #ffffff;
+    --success: 142 71% 45%;
+    /* #22c55e */
+    --success-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-warning: #f59e0b;
-    --color-warning-foreground: #000000;
+    --warning: 38 92% 50%;
+    /* #f59e0b */
+    --warning-foreground: 0 0% 0%;
+    /* #000000 */
 
-    --color-error: #ef4444;
-    --color-error-foreground: #ffffff;
+    --error: 0 84% 60%;
+    /* #ef4444 */
+    --error-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: #ffffff;
+    --destructive: 0 84% 60%;
+    /* #ef4444 */
+    --destructive-foreground: 0 0% 100%;
+    /* #ffffff */
 
     /* Radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-xl: 16px;
+
+    /* Color variables for charts (light mode) */
+    --color-primary: hsl(187, 100%, 42%);
+    --color-secondary: hsl(271, 91%, 65%);
+    --color-accent: hsl(330, 81%, 60%);
+    --color-background: hsl(210, 40%, 98%);
+    --color-foreground: hsl(217, 33%, 17%);
+    --color-card: hsl(0, 0%, 100%);
+    --color-card-foreground: hsl(215, 25%, 27%);
+    --color-muted: hsl(210, 40%, 96%);
+    --color-muted-foreground: hsl(215, 16%, 47%);
+    --color-border: hsl(214, 32%, 85%);
+    --color-success: hsl(142, 71%, 45%);
+    --color-warning: hsl(38, 92%, 50%);
+    --color-error: hsl(0, 84%, 60%);
   }
 
   .dark {
-    /* Modern Color Palette - Dark Mode */
-    --color-primary: #06b6d4;
-    --color-primary-foreground: #0f172a;
+    /* Modern Color Palette - Dark Mode - Matching Login.css Kinetic Theme */
+    --primary: 187 100% 42%;
+    /* #06b6d4 */
+    --primary-foreground: 217 33% 17%;
+    /* #0f172a */
 
-    --color-secondary: #a855f7;
-    --color-secondary-foreground: #ffffff;
+    --secondary: 271 91% 65%;
+    /* #a855f7 */
+    --secondary-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-accent: #ec4899;
-    --color-accent-foreground: #ffffff;
+    --accent: 330 81% 60%;
+    /* #ec4899 */
+    --accent-foreground: 0 0% 100%;
+    /* #ffffff */
 
-    --color-background: #0a0a0f;
-    --color-foreground: #f1f5f9;
+    --background: 0 0% 2%;
+    /* #050505 - Pure black */
+    --foreground: 0 0% 94%;
+    /* #f0f0f0 - Light chrome */
 
-    --color-card: #1a1a24;
-    --color-card-foreground: #e2e8f0;
+    --card: 0 0% 8%;
+    /* Dark card with slight lightness */
+    --card-foreground: 0 0% 94%;
+    /* #f0f0f0 */
 
-    --color-popover: #1e1e2e;
-    --color-popover-foreground: #f1f5f9;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 94%;
 
-    --color-muted: #1e293b;
-    --color-muted-foreground: #94a3b8;
+    --muted: 0 0% 15%;
+    /* Muted background */
+    --muted-foreground: 0 0% 56%;
+    /* #8e8e8e - Mid chrome */
 
-    --color-border: #2d3748;
-    --color-input: #1e293b;
-    --color-ring: #06b6d4;
+    --border: 0 0% 20%;
+    /* Subtle borders */
+    --input: 0 0% 10%;
+    /* Dark input */
+    --ring: 187 100% 50%;
+    /* #00f0ff - Cyan accent */
 
-    --color-success: #22c55e;
-    --color-success-foreground: #ffffff;
+    --success: 142 71% 45%;
+    /* #22c55e */
+    --success-foreground: 0 0% 100%;
 
-    --color-warning: #f59e0b;
-    --color-warning-foreground: #000000;
+    --warning: 38 92% 50%;
+    /* #f59e0b */
+    --warning-foreground: 0 0% 0%;
 
-    --color-error: #ef4444;
-    --color-error-foreground: #ffffff;
+    --error: 0 84% 60%;
+    /* #ef4444 */
+    --error-foreground: 0 0% 100%;
 
-    --color-destructive: #ef4444;
-    --color-destructive-foreground: #ffffff;
+    --destructive: 0 84% 60%;
+    /* #ef4444 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Color variables for charts (dark mode) */
+    --color-primary: hsl(187, 100%, 42%);
+    --color-secondary: hsl(271, 91%, 65%);
+    --color-accent: hsl(330, 81%, 60%);
+    --color-background: hsl(0, 0%, 2%);
+    --color-foreground: hsl(0, 0%, 94%);
+    --color-card: hsl(0, 0%, 8%);
+    --color-card-foreground: hsl(0, 0%, 94%);
+    --color-muted: hsl(0, 0%, 15%);
+    --color-muted-foreground: hsl(0, 0%, 56%);
+    --color-border: hsl(0, 0%, 20%);
+    --color-success: hsl(142, 71%, 45%);
+    --color-warning: hsl(38, 92%, 50%);
+    --color-error: hsl(0, 84%, 60%);
   }
 
   * {
@@ -102,6 +176,8 @@
     font-size: 16px;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
   h1,
@@ -142,6 +218,18 @@
   pre {
     @apply font-mono;
     font-feature-settings: "liga" 1, "calt" 1;
+  }
+
+  /* Light mode card shadows for better contrast */
+  :root .bg-card,
+  :root [class*="bg-card"] {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Remove shadows in dark mode */
+  .dark .bg-card,
+  .dark [class*="bg-card"] {
+    box-shadow: none;
   }
 }
 

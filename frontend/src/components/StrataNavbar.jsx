@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useBehavioralAuth } from '../contexts/BehavioralAuthContext';
+import { useDarkMode } from '../contexts/DarkModeContext';
 import './StrataNavbar.css';
 
 const StrataNavbar = () => {
     const navigate = useNavigate();
     const { stopTracking } = useBehavioralAuth();
+    const { isDarkMode, toggleDarkMode } = useDarkMode();
     const [menuActive, setMenuActive] = useState(false);
-    const [theme, setTheme] = useState(() => {
-        return localStorage.getItem('dashboard-theme') || 'dark';
-    });
 
     const pages = [
         {
@@ -75,18 +74,6 @@ const StrataNavbar = () => {
         navigate(path);
     };
 
-    const toggleTheme = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-        localStorage.setItem('dashboard-theme', newTheme);
-    };
-
-    useEffect(() => {
-        document.body.setAttribute('data-theme', theme);
-        return () => {
-            document.body.removeAttribute('data-theme');
-        };
-    }, [theme]);
 
     return (
         <>
@@ -97,8 +84,8 @@ const StrataNavbar = () => {
                 </div>
 
                 <div className="strata-nav-actions">
-                    <button className="strata-theme-toggle-btn" onClick={toggleTheme} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
-                        {theme === 'dark' ? (
+                    <button className="strata-theme-toggle-btn" onClick={toggleDarkMode} title={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}>
+                        {isDarkMode ? (
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <circle cx="12" cy="12" r="5" />
                                 <line x1="12" y1="1" x2="12" y2="3" />
