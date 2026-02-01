@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import TypingTest from "../../components/TypingTest";
 import { useBehavioralAuth } from "../../contexts/BehavioralAuthContext";
 import "./UserDashboard.css";
 import PageTransition from "../../components/PageTransition";
 
 const UserDashboard = () => {
   const { sessionTrustLevel } = useBehavioralAuth();
+  const [showTypingTest, setShowTypingTest] = useState(false);
 
   return (
     <PageTransition>
       <div className="user-dashboard-strata">
         <div className="dashboard-grid">
+          {/* LEFT COLUMN */}
           <aside className="left-column">
             <div className="profile-card info-card">
               <div className="avatar" aria-hidden>
@@ -44,11 +47,18 @@ const UserDashboard = () => {
                 <div
                   className="trust-fill"
                   style={{
-                    width: `${sessionTrustLevel === "Low" ? 28 : sessionTrustLevel === "Medium" ? 60 : 92}%`,
+                    width: `${sessionTrustLevel === "Low"
+                        ? 28
+                        : sessionTrustLevel === "Medium"
+                          ? 60
+                          : 92
+                      }%`,
                   }}
                 />
               </div>
-              <div className="trust-label">{sessionTrustLevel ?? "High"}</div>
+              <div className="trust-label">
+                {sessionTrustLevel ?? "High"}
+              </div>
             </div>
 
             <div className="recent-card info-card">
@@ -70,6 +80,7 @@ const UserDashboard = () => {
             </div>
           </aside>
 
+          {/* RIGHT COLUMN */}
           <main className="right-column">
             <div className="page-header">
               <h1>System Status</h1>
@@ -81,7 +92,9 @@ const UserDashboard = () => {
             <section className="kpi-cards">
               <div className="info-card">
                 <h3>Trust Level</h3>
-                <div className="info-value">{sessionTrustLevel ?? "High"}</div>
+                <div className="info-value">
+                  {sessionTrustLevel ?? "High"}
+                </div>
               </div>
 
               <div className="info-card">
@@ -103,6 +116,26 @@ const UserDashboard = () => {
             <section className="graph-card info-card">
               <h3>Activity Graph</h3>
               <div className="graph-placeholder">(Graph placeholder)</div>
+            </section>
+
+            {/* BEHAVIORAL TEST SECTION */}
+            <section className="info-card">
+              <h3>Behavioral Verification</h3>
+              <p>
+                For security verification, please type the text below to
+                confirm your identity.
+              </p>
+
+              <button
+                onClick={() => setShowTypingTest(!showTypingTest)}
+                className="primary-btn"
+              >
+                {showTypingTest
+                  ? "Hide Typing Test"
+                  : "Start Typing Verification"}
+              </button>
+
+              {showTypingTest && <TypingTest />}
             </section>
           </main>
         </div>
