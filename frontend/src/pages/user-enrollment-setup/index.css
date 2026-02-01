@@ -1,20 +1,17 @@
+/* Light mode styles */
 .user-enrollment-setup {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 40px;
-    color: #f0f0f0;
+    color: #1a1a1a;
     font-family: 'Space Grotesk', sans-serif;
-}
-
-.page-header {
-    margin-bottom: 40px;
 }
 
 .page-header h1 {
     font-size: 36px;
     font-weight: 700;
     margin: 0 0 8px 0;
-    background: linear-gradient(to right, #fff, #ec4899);
+    background: linear-gradient(to right, #1a1a1a, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -22,7 +19,7 @@
 
 .subtitle {
     font-size: 16px;
-    color: #8e8e8e;
+    color: #6c757d;
     margin: 0;
 }
 
@@ -33,15 +30,15 @@
 }
 
 .info-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 32px;
     transition: all 0.3s ease;
 }
 
 .info-card:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     border-color: rgba(236, 72, 153, 0.5);
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(236, 72, 153, 0.2);
@@ -56,14 +53,48 @@
     font-size: 24px;
     font-weight: 600;
     margin: 0 0 12px 0;
-    color: #fff;
+    color: #1a1a1a;
 }
 
 .info-card p {
     font-size: 14px;
-    color: #8e8e8e;
+    color: #6c757d;
     line-height: 1.6;
     margin: 0;
+}
+
+/* Dark mode styles */
+.dark .user-enrollment-setup {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    color: #f0f0f0;
+}
+
+.dark .page-header h1 {
+    background: linear-gradient(to right, #fff, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .subtitle {
+    color: #8e8e8e;
+}
+
+.dark .info-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .info-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .info-card h2 {
+    color: #fff;
+}
+
+.dark .info-card p {
+    color: #8e8e8e;
 }
 
 @media (max-width: 768px) {

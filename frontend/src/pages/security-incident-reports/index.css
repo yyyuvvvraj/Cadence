@@ -1,303 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@300;500&display=swap");
 
-/* === SCOPED VARIABLES === */
-.security-incident-reports {
-    --kinetic-bg: #050505;
-    --obsidian: #0a0a0a;
-    --obsidian-light: #161616;
-    --chrome-light: #f0f0f0;
-    --chrome-mid: #8e8e8e;
-    --chrome-dark: #2a2a2a;
-    --accent-cyan: #00f0ff;
-    --accent-purple: #a855f7;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --border-color: rgba(255, 255, 255, 0.1);
+/* === SECURITY INCIDENT REPORTS - THEME-AWARE === */
+
+:root {
     --font-sans: 'Space Grotesk', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* === PAGE CONTAINER === */
-.security-incident-reports {
-    min-height: 100vh !important;
-    background: var(--kinetic-bg) !important;
-    color: var(--chrome-light) !important;
-    font-family: var(--font-sans) !important;
-    position: relative;
-    overflow-x: hidden;
+/* Apply fonts */
+body,
+#root {
+    font-family: var(--font-sans);
 }
 
-/* === KINETIC BACKGROUND === */
-.security-incident-reports::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, #0d0d0d, #000);
-    z-index: 0;
-    pointer-events: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-sans);
 }
 
-.security-incident-reports::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        linear-gradient(90deg, transparent 0%, var(--border-color) 50%, transparent 100%),
-        linear-gradient(0deg, transparent 0%, var(--border-color) 50%, transparent 100%);
-    background-size: 100px 100px;
-    opacity: 0.03;
-    z-index: 0;
-    pointer-events: none;
-    animation: gridMove 20s linear infinite;
+button {
+    font-family: var(--font-mono);
 }
 
-@keyframes gridMove {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(100px, 100px);
-    }
-}
-
-/* === CONTENT LAYER === */
-.security-incident-reports>* {
-    position: relative;
-    z-index: 1;
-}
-
-/* === HEADERS === */
-.security-incident-reports h1 {
-    font-size: clamp(32px, 5vw, 56px) !important;
-    font-weight: 700 !important;
-    margin-bottom: 12px !important;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    letter-spacing: -0.02em !important;
-    font-family: var(--font-sans) !important;
-}
-
-.security-incident-reports h2 {
-    font-size: clamp(20px, 3vw, 32px) !important;
-    font-weight: 600 !important;
-    color: var(--chrome-light) !important;
-    margin-bottom: 16px !important;
-    font-family: var(--font-sans) !important;
-}
-
-.security-incident-reports p {
-    color: var(--chrome-mid) !important;
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-}
-
-/* === OVERRIDE TAILWIND BG === */
-.security-incident-reports .bg-background,
-.security-incident-reports .bg-card,
-.security-incident-reports .bg-muted {
-    background: var(--glass-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    backdrop-filter: blur(20px) !important;
-}
-
-.security-incident-reports .bg-background:hover,
-.security-incident-reports .bg-card:hover {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(0, 240, 255, 0.3) !important;
-    box-shadow: 0 8px 32px rgba(0, 240, 255, 0.1) !important;
-}
-
-/* === TEXT COLORS === */
-.security-incident-reports .text-foreground {
-    color: var(--chrome-light) !important;
-}
-
-.security-incident-reports .text-muted-foreground {
-    color: var(--chrome-mid) !important;
-}
-
-/* === BUTTONS === */
-.security-incident-reports button {
-    background: var(--glass-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--chrome-light) !important;
-    font-family: var(--font-mono) !important;
-    font-size: 12px !important;
-    letter-spacing: 1px !important;
-    text-transform: uppercase !important;
-    transition: all 0.3s ease !important;
-}
-
-.security-incident-reports button:hover {
-    background: rgba(0, 240, 255, 0.1) !important;
-    border-color: var(--accent-cyan) !important;
-    color: var(--accent-cyan) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 240, 255, 0.2) !important;
-}
-
-/* === INPUTS === */
-.security-incident-reports input,
-.security-incident-reports select,
-.security-incident-reports textarea {
-    background: var(--obsidian) !important;
-    border: 1px solid var(--border-color) !important;
-    color: var(--chrome-light) !important;
-    font-family: var(--font-sans) !important;
-    transition: all 0.3s ease !important;
-}
-
-.security-incident-reports input:focus,
-.security-incident-reports select:focus,
-.security-incident-reports textarea:focus {
-    outline: none !important;
-    border-color: var(--accent-cyan) !important;
-    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.1) !important;
-}
-
-.security-incident-reports input::placeholder,
-.security-incident-reports textarea::placeholder {
-    color: var(--chrome-mid) !important;
-}
-
-/* === TABLES === */
-.security-incident-reports table {
-    background: var(--glass-bg) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-}
-
-.security-incident-reports thead {
-    background: var(--obsidian-light) !important;
-}
-
-.security-incident-reports th {
-    font-family: var(--font-mono) !important;
-    font-size: 11px !important;
-    letter-spacing: 1.5px !important;
-    text-transform: uppercase !important;
-    color: var(--accent-cyan) !important;
-    border-bottom: 1px solid var(--border-color) !important;
-}
-
-.security-incident-reports td {
-    color: var(--chrome-light) !important;
-    border-bottom: 1px solid var(--border-color) !important;
-}
-
-.security-incident-reports tbody tr:hover {
-    background: rgba(0, 240, 255, 0.05) !important;
-}
-
-/* === SEVERITY BADGES === */
-.security-incident-reports [class*="severity-critical"],
-.security-incident-reports .severity-critical {
-    background: rgba(239, 68, 68, 0.1) !important;
-    border: 1px solid rgba(239, 68, 68, 0.3) !important;
-    color: #ef4444 !important;
-}
-
-.security-incident-reports [class*="severity-high"],
-.security-incident-reports .severity-high {
-    background: rgba(249, 115, 22, 0.1) !important;
-    border: 1px solid rgba(249, 115, 22, 0.3) !important;
-    color: #f97316 !important;
-}
-
-.security-incident-reports [class*="severity-medium"],
-.security-incident-reports .severity-medium {
-    background: rgba(234, 179, 8, 0.1) !important;
-    border: 1px solid rgba(234, 179, 8, 0.3) !important;
-    color: #eab308 !important;
-}
-
-.security-incident-reports [class*="severity-low"],
-.security-incident-reports .severity-low {
-    background: rgba(34, 197, 94, 0.1) !important;
-    border: 1px solid rgba(34, 197, 94, 0.3) !important;
-    color: #22c55e !important;
-}
-
-/* === STATUS BADGES === */
-.security-incident-reports [class*="status-open"],
-.security-incident-reports .status-open {
-    background: rgba(239, 68, 68, 0.1) !important;
-    border: 1px solid rgba(239, 68, 68, 0.3) !important;
-    color: #ef4444 !important;
-}
-
-.security-incident-reports [class*="status-investigating"],
-.security-incident-reports .status-investigating {
-    background: rgba(234, 179, 8, 0.1) !important;
-    border: 1px solid rgba(234, 179, 8, 0.3) !important;
-    color: #eab308 !important;
-}
-
-.security-incident-reports [class*="status-resolved"],
-.security-incident-reports .status-resolved {
-    background: rgba(34, 197, 94, 0.1) !important;
-    border: 1px solid rgba(34, 197, 94, 0.3) !important;
-    color: #22c55e !important;
-}
-
-.security-incident-reports [class*="status-escalated"],
-.security-incident-reports .status-escalated {
-    background: rgba(168, 85, 247, 0.1) !important;
-    border: 1px solid rgba(168, 85, 247, 0.3) !important;
-    color: #a855f7 !important;
-}
-
-/* === SCROLLBAR === */
-.security-incident-reports ::-webkit-scrollbar {
+/* Custom scrollbar - Dark mode */
+.dark ::-webkit-scrollbar {
     width: 8px;
-    height: 8px;
 }
 
-.security-incident-reports ::-webkit-scrollbar-track {
-    background: var(--obsidian);
+.dark ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #8e8e8e;
     border-radius: 4px;
 }
 
-.security-incident-reports ::-webkit-scrollbar-thumb {
-    background: var(--chrome-dark);
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #00f0ff;
+}
+
+/* Custom scrollbar - Light mode */
+html:not(.dark) ::-webkit-scrollbar {
+    width: 8px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: #d4d4d8;
     border-radius: 4px;
 }
 
-.security-incident-reports ::-webkit-scrollbar-thumb:hover {
-    background: var(--chrome-mid);
-}
-
-/* === ANIMATIONS === */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.security-incident-reports [class*="card"],
-.security-incident-reports [class*="panel"] {
-    animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-    .security-incident-reports h1 {
-        font-size: 32px !important;
-    }
-
-    .security-incident-reports h2 {
-        font-size: 24px !important;
-    }
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
 }

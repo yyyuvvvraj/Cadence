@@ -1,7 +1,6 @@
 /* === STRATA NAVBAR STYLES === */
 
-/* Dark Mode (Default) */
-[data-theme="dark"] .strata-top-nav,
+/* Light Mode (Default) */
 .strata-top-nav {
     height: 80px;
     width: 100%;
@@ -9,17 +8,17 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     z-index: 100;
     position: relative;
-    background: #000000;
+    background: #ffffff;
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Light Mode */
-[data-theme="light"] .strata-top-nav {
-    background: #ffffff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Dark Mode */
+.dark .strata-top-nav {
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .strata-brand-zone {
@@ -28,21 +27,20 @@
     gap: 15px;
 }
 
-/* Dark Mode Brand */
-[data-theme="dark"] .strata-brand-name,
+/* Light Mode Brand */
 .strata-brand-name {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #f0f0f0;
+    color: #0a0a0a;
     transition: color 0.3s ease;
 }
 
-/* Light Mode Brand */
-[data-theme="light"] .strata-brand-name {
-    color: #0a0a0a;
+/* Dark Mode Brand */
+.dark .strata-brand-name {
+    color: #f0f0f0;
 }
 
 .strata-nav-actions {
@@ -51,12 +49,11 @@
     gap: 20px;
 }
 
-/* Dark Mode Logout Button */
-[data-theme="dark"] .strata-logout-btn-nav,
+/* Light Mode Logout Button */
 .strata-logout-btn-nav {
     background: none;
-    border: 1px solid #4a4a4a;
-    color: #4a4a4a;
+    border: 1px solid #d0d0d0;
+    color: #666666;
     padding: 8px 16px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -66,31 +63,23 @@
     cursor: pointer;
 }
 
-/* Light Mode Logout Button */
-[data-theme="light"] .strata-logout-btn-nav {
-    border: 1px solid #d0d0d0;
-    color: #666666;
+/* Dark Mode Logout Button */
+.dark .strata-logout-btn-nav {
+    border: 1px solid #4a4a4a;
+    color: #4a4a4a;
 }
 
-[data-theme="dark"] .strata-logout-btn-nav:hover,
 .strata-logout-btn-nav:hover {
     border-color: #ff4d4d;
     color: #ff4d4d;
     background: rgba(255, 77, 77, 0.05);
 }
 
-[data-theme="light"] .strata-logout-btn-nav:hover {
-    border-color: #ff4d4d;
-    color: #ff4d4d;
-    background: rgba(255, 77, 77, 0.05);
-}
-
-/* Dark Mode Profile Button */
-[data-theme="dark"] .strata-profile-btn-nav,
+/* Light Mode Profile Button */
 .strata-profile-btn-nav {
     background: none;
-    border: 1px solid #4a4a4a;
-    color: #f0f0f0;
+    border: 1px solid #d0d0d0;
+    color: #0a0a0a;
     padding: 8px;
     font-family: 'JetBrains Mono', monospace;
     display: flex;
@@ -103,31 +92,29 @@
     height: 36px;
 }
 
-/* Light Mode Profile Button */
-[data-theme="light"] .strata-profile-btn-nav {
-    border: 1px solid #d0d0d0;
-    color: #0a0a0a;
+/* Dark Mode Profile Button */
+.dark .strata-profile-btn-nav {
+    border: 1px solid #4a4a4a;
+    color: #f0f0f0;
 }
 
-[data-theme="dark"] .strata-profile-btn-nav:hover,
 .strata-profile-btn-nav:hover {
-    border-color: #a855f7;
-    color: #a855f7;
-    background: rgba(168, 85, 247, 0.05);
-}
-
-[data-theme="light"] .strata-profile-btn-nav:hover {
     border-color: #9333ea;
     color: #9333ea;
     background: rgba(147, 51, 234, 0.05);
 }
 
-/* Dark Mode Theme Toggle */
-[data-theme="dark"] .strata-theme-toggle-btn,
+.dark .strata-profile-btn-nav:hover {
+    border-color: #a855f7;
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.05);
+}
+
+/* Light Mode Theme Toggle */
 .strata-theme-toggle-btn {
     background: none;
-    border: 1px solid #4a4a4a;
-    color: #f0f0f0;
+    border: 1px solid #d0d0d0;
+    color: #0a0a0a;
     padding: 8px;
     font-family: 'JetBrains Mono', monospace;
     display: flex;
@@ -140,24 +127,23 @@
     height: 36px;
 }
 
-/* Light Mode Theme Toggle */
-[data-theme="light"] .strata-theme-toggle-btn {
-    border: 1px solid #d0d0d0;
-    color: #0a0a0a;
+/* Dark Mode Theme Toggle */
+.dark .strata-theme-toggle-btn {
+    border: 1px solid #4a4a4a;
+    color: #f0f0f0;
 }
 
-[data-theme="dark"] .strata-theme-toggle-btn:hover,
 .strata-theme-toggle-btn:hover {
-    border-color: #00f0ff;
-    color: #00f0ff;
-    background: rgba(0, 240, 255, 0.05);
-    transform: rotate(180deg);
-}
-
-[data-theme="light"] .strata-theme-toggle-btn:hover {
     border-color: #00a0d0;
     color: #00a0d0;
     background: rgba(0, 160, 208, 0.05);
+    transform: rotate(180deg);
+}
+
+.dark .strata-theme-toggle-btn:hover {
+    border-color: #00f0ff;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.05);
     transform: rotate(180deg);
 }
 
@@ -165,12 +151,11 @@
     transition: transform 0.3s ease;
 }
 
-/* Dark Mode Nav Trigger */
-[data-theme="dark"] .strata-nav-trigger,
+/* Light Mode Nav Trigger */
 .strata-nav-trigger {
     background: none;
     border: none;
-    color: #f0f0f0;
+    color: #0a0a0a;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     display: flex;
@@ -180,47 +165,44 @@
     cursor: pointer;
 }
 
-/* Light Mode Nav Trigger */
-[data-theme="light"] .strata-nav-trigger {
-    color: #0a0a0a;
+/* Dark Mode Nav Trigger */
+.dark .strata-nav-trigger {
+    color: #f0f0f0;
 }
 
-[data-theme="dark"] .strata-nav-trigger:hover,
 .strata-nav-trigger:hover {
-    color: #00f0ff;
-}
-
-[data-theme="light"] .strata-nav-trigger:hover {
     color: #00a0d0;
 }
 
-/* Dark Mode Burger */
-[data-theme="dark"] .strata-burger,
-.strata-burger {
-    width: 20px;
-    height: 2px;
-    background: #f0f0f0;
-    position: relative;
+.dark .strata-nav-trigger:hover {
+    color: #00f0ff;
 }
 
 /* Light Mode Burger */
-[data-theme="light"] .strata-burger {
+.strata-burger {
+    width: 20px;
+    height: 2px;
     background: #0a0a0a;
+    position: relative;
 }
 
-[data-theme="dark"] .strata-burger-accent,
+/* Dark Mode Burger */
+.dark .strata-burger {
+    background: #f0f0f0;
+}
+
 .strata-burger-accent {
     position: absolute;
     top: -6px;
     left: 0;
     width: 12px;
     height: 2px;
-    background: #00f0ff;
+    background: #00a0d0;
     transition: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-[data-theme="light"] .strata-burger-accent {
-    background: #00a0d0;
+.dark .strata-burger-accent {
+    background: #00f0ff;
 }
 
 .strata-nav-trigger:hover .strata-burger-accent {
@@ -229,12 +211,11 @@
 
 /* === STRATA MENU OVERLAY === */
 
-/* Dark Mode Menu Overlay */
-[data-theme="dark"] .strata-menu-overlay,
+/* Light Mode Menu Overlay */
 .strata-menu-overlay {
     position: fixed;
     inset: 0;
-    background: #000000;
+    background: #ffffff;
     z-index: 90;
     display: flex;
     opacity: 0;
@@ -242,9 +223,9 @@
     transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Light Mode Menu Overlay */
-[data-theme="light"] .strata-menu-overlay {
-    background: #ffffff;
+/* Dark Mode Menu Overlay */
+.dark .strata-menu-overlay {
+    background: #000000;
 }
 
 .strata-menu-overlay.active {
@@ -252,12 +233,11 @@
     pointer-events: all;
 }
 
-/* Dark Mode Menu Column */
-[data-theme="dark"] .strata-menu-column,
+/* Light Mode Menu Column */
 .strata-menu-column {
     flex: 1;
     height: 100%;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -266,14 +246,14 @@
     transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, flex 0.4s ease;
     transform: translateY(100%);
     overflow: hidden;
-    background: #000000;
+    background: #f5f5f5;
     cursor: pointer;
 }
 
-/* Light Mode Menu Column */
-[data-theme="light"] .strata-menu-column {
-    background: #f5f5f5;
-    border-right: 1px solid rgba(0, 0, 0, 0.08);
+/* Dark Mode Menu Column */
+.dark .strata-menu-column {
+    background: #000000;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .strata-menu-overlay.active .strata-menu-column {
@@ -304,82 +284,76 @@
     transition-delay: 0.3s;
 }
 
-/* Dark Mode Menu Column Hover */
-[data-theme="dark"] .strata-menu-column:hover,
-.strata-menu-column:hover {
-    background: #161616;
-    flex: 1.5;
-}
-
 /* Light Mode Menu Column Hover */
-[data-theme="light"] .strata-menu-column:hover {
+.strata-menu-column:hover {
     background: #e8e8e8;
     flex: 1.5;
 }
 
-/* Dark Mode Menu ID */
-[data-theme="dark"] .strata-menu-id,
+/* Dark Mode Menu Column Hover */
+.dark .strata-menu-column:hover {
+    background: #161616;
+    flex: 1.5;
+}
+
+/* Light Mode Menu ID */
 .strata-menu-id {
     font-family: 'JetBrains Mono', monospace;
-    color: #00f0ff;
+    color: #00a0d0;
     font-size: 12px;
     margin-bottom: 20px;
 }
 
-/* Light Mode Menu ID */
-[data-theme="light"] .strata-menu-id {
-    color: #00a0d0;
+/* Dark Mode Menu ID */
+.dark .strata-menu-id {
+    color: #00f0ff;
 }
 
-/* Dark Mode Menu Title */
-[data-theme="dark"] .strata-menu-title,
+/* Light Mode Menu Title */
 .strata-menu-title {
     font-size: 32px;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 20px;
     text-transform: uppercase;
-    color: #f0f0f0;
-}
-
-/* Light Mode Menu Title */
-[data-theme="light"] .strata-menu-title {
     color: #0a0a0a;
 }
 
-/* Dark Mode Menu Description */
-[data-theme="dark"] .strata-menu-desc,
+/* Dark Mode Menu Title */
+.dark .strata-menu-title {
+    color: #f0f0f0;
+}
+
+/* Light Mode Menu Description */
 .strata-menu-desc {
     font-size: 14px;
-    color: #4a4a4a;
+    color: #888888;
     max-width: 200px;
     line-height: 1.6;
     transition: color 0.3s ease;
 }
 
-/* Light Mode Menu Description */
-[data-theme="light"] .strata-menu-desc {
-    color: #888888;
+/* Dark Mode Menu Description */
+.dark .strata-menu-desc {
+    color: #4a4a4a;
 }
 
-[data-theme="dark"] .strata-menu-column:hover .strata-menu-desc,
 .strata-menu-column:hover .strata-menu-desc {
-    color: #f0f0f0;
-}
-
-[data-theme="light"] .strata-menu-column:hover .strata-menu-desc {
     color: #0a0a0a;
 }
 
-/* Dark Mode Logout Overlay Button */
-[data-theme="dark"] .strata-logout-btn-overlay,
+.dark .strata-menu-column:hover .strata-menu-desc {
+    color: #f0f0f0;
+}
+
+/* Light Mode Logout Overlay Button */
 .strata-logout-btn-overlay {
     position: absolute;
     top: 40px;
     right: 40px;
     background: none;
-    border: 1px solid #4a4a4a;
-    color: #4a4a4a;
+    border: 1px solid #d0d0d0;
+    color: #666666;
     padding: 10px 20px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -390,20 +364,13 @@
     cursor: pointer;
 }
 
-/* Light Mode Logout Overlay Button */
-[data-theme="light"] .strata-logout-btn-overlay {
-    border: 1px solid #d0d0d0;
-    color: #666666;
+/* Dark Mode Logout Overlay Button */
+.dark .strata-logout-btn-overlay {
+    border: 1px solid #4a4a4a;
+    color: #4a4a4a;
 }
 
-[data-theme="dark"] .strata-logout-btn-overlay:hover,
 .strata-logout-btn-overlay:hover {
-    border-color: #ff4d4d;
-    color: #ff4d4d;
-    background: rgba(255, 77, 77, 0.05);
-}
-
-[data-theme="light"] .strata-logout-btn-overlay:hover {
     border-color: #ff4d4d;
     color: #ff4d4d;
     background: rgba(255, 77, 77, 0.05);
@@ -423,12 +390,12 @@
         border-right: none;
     }
 
-    [data-theme="dark"] .strata-menu-column {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    .strata-menu-column {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    [data-theme="light"] .strata-menu-column {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    .dark .strata-menu-column {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .strata-menu-overlay.active .strata-menu-column {
