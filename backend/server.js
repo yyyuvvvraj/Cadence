@@ -8,6 +8,7 @@ dotenv.config();
 
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/auth");
+const profileRoutes = require("./routes/profile");
 
 connectDB();
 
@@ -41,6 +42,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
 
 // Start server LAST
 const PORT = process.env.PORT || 5000;

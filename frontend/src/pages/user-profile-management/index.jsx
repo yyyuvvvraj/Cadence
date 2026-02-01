@@ -5,15 +5,101 @@ import './index.css';
 const UserProfileManagement = () => {
   const [username, setUsername] = useState('USER');
   const [userRole, setUserRole] = useState('User');
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Get username from localStorage
-    const storedUsername = localStorage.getItem('username') || 'user';
-    const storedRole = localStorage.getItem('userRole') || 'user';
-
-    setUsername(storedUsername.toUpperCase());
-    setUserRole(storedRole === 'admin' ? 'Admin' : 'User');
+    fetchUserProfile();
   }, []);
+
+  const fetchUserProfile = async () => {
+    try {
+      setLoading(true);
+      console.log('Fetching user profile from API...');
+
+      const response = await fetch('http://localhost:5000/api/profile', {
+        credentials: 'include', // Important for sending cookies
+      });
+
+      console.log('API Response status:', response.status);
+      console.log('API Response ok:', response.ok);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API Error:', response.status, errorText);
+        throw new Error('Failed to fetch profile');
+      }
+
+      const data = await response.json();
+      console.log('Profile data received:', data);
+      setUserData(data);
+      setUsername(data.name?.toUpperCase() || 'USER');
+
+      // Get role from localStorage as fallback
+      const storedRole = localStorage.getItem('userRole') || 'user';
+      setUserRole(storedRole === 'admin' ? 'Admin' : 'User');
+      setError(null);
+    } catch (err) {
+      console.error('Error fetching profile:', err);
+      setError('Failed to load profile data');
+
+      // Fallback to localStorage
+      const storedUsername = localStorage.getItem('username') || 'user';
+      const storedRole = localStorage.getItem('userRole') || 'user';
+      setUsername(storedUsername.toUpperCase());
+      setUserRole(storedRole === 'admin' ? 'Admin' : 'User');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePhotoUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setError('Please select an image file');
+      return;
+    }
+
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image size should be less than 5MB');
+      return;
+    }
+
+    try {
+      setUploading(true);
+      setError(null);
+
+      const formData = new FormData();
+      formData.append('photo', file);
+
+      const response = await fetch('http://localhost:5000/api/profile/photo', {
+        method: 'PUT',
+        credentials: 'include',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload photo');
+      }
+
+      const data = await response.json();
+
+      // Update local state with new avatar
+      setUserData(prev => ({ ...prev, avatar: data.avatar }));
+      setError(null);
+    } catch (err) {
+      console.error('Error uploading photo:', err);
+      setError('Failed to upload photo. Please try again.');
+    } finally {
+      setUploading(false);
+    }
+  };
   return (
     <>
       <Helmet>
@@ -86,12 +172,39 @@ const UserProfileManagement = () => {
           <aside className="tectonic-sidebar">
             <div className="avatar-container">
               <div className="block-label" style={{ zIndex: 2 }}>BIO_ID_SCAN</div>
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
-                className="avatar-img"
-                alt="Profile"
-              />
+              {loading ? (
+                <div className="avatar-loading">
+                  <div className="loading-spinner"></div>
+                </div>
+              ) : (
+                <>
+                  <img
+                    src={userData?.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"}
+                    className="avatar-img"
+                    alt="Profile"
+                  />
+                  <div className="avatar-upload-overlay">
+                    <input
+                      type="file"
+                      id="photo-upload"
+                      accept="image/*"
+                      onChange={handlePhotoUpload}
+                      style={{ display: 'none' }}
+                      disabled={uploading}
+                    />
+                    <label htmlFor="photo-upload" className="upload-button">
+                      {uploading ? 'Uploading...' : 'Change Photo'}
+                    </label>
+                  </div>
+                </>
+              )}
             </div>
+
+            {error && (
+              <div className="error-message">
+                {error}
+              </div>
+            )}
 
             <div className="tectonic-block" style={{ flexGrow: 1 }}>
               <span className="block-label">Live_Feed</span>
