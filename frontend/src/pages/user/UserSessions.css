@@ -1,0 +1,314 @@
+/* UserSessions.css - Volcanic Resonance Theme */
+
+.user-sessions-container {
+    --void: #050505;
+    --basalt: #0f0f0f;
+    --magma: #ff3385;
+    /* Desaturated pink */
+    --magma-glow: rgba(255, 51, 133, 0.15);
+    /* Reduced glow opacity */
+    --magma-dim: #2b0b16;
+    --text-primary: #e0e0e0;
+    --text-secondary: #888;
+    --slab-border: #1a1a1a;
+
+    background-color: var(--void);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    /* Ensure it takes full width/height in the layout */
+    width: 100%;
+    padding: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-sessions-container[data-theme="light"] {
+    --void: #f8f9fa;
+    --basalt: #ffffff;
+    --magma: #ef4444;
+    /* Red/Orange for light mode contrast */
+    --magma-glow: rgba(239, 68, 68, 0.15);
+    --magma-dim: #fee2e2;
+    --text-primary: #18181b;
+    --text-secondary: #71717a;
+    --slab-border: #e4e4e7;
+}
+
+/* Texture Overlay */
+.user-sessions-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.sessions-content-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.sessions-header {
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    /* Changed from magma to secondary text */
+    display: block;
+    margin-bottom: 8px;
+}
+
+.sessions-header h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+}
+
+/* Pulsing Filament */
+.filament {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--magma), transparent);
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.filament::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    animation: pulse-line 3s infinite linear;
+}
+
+@keyframes pulse-line {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Session Sections */
+.section-label {
+    margin: 60px 0 30px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-label span.line {
+    height: 1px;
+    flex-grow: 1;
+    background: var(--slab-border);
+}
+
+/* The Slabs */
+.slab-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.slab {
+    background: var(--basalt);
+    border: 1px solid var(--slab-border);
+    padding: 30px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.slab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0px;
+    background: var(--magma);
+    transition: width 0.3s ease;
+}
+
+.slab:hover {
+    transform: translateX(10px);
+    border-color: var(--magma-dim);
+    background: #141414;
+}
+
+.slab:hover::before {
+    width: 4px;
+}
+
+.slab.active {
+    border-color: var(--magma);
+    box-shadow: 0 0 30px -15px var(--magma-glow);
+    /* Reduced shadow spread */
+}
+
+.slab.active::after {
+    content: "LIVE";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--magma);
+    border: 1px solid var(--magma);
+    padding: 2px 6px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.session-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.device-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.meta-data {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 20px;
+}
+
+.meta-data b {
+    color: var(--text-primary);
+    /* Changed from magma to primary text */
+    font-weight: 400;
+}
+
+.action-zone {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.location {
+    text-align: right;
+}
+
+.city {
+    font-size: 0.9rem;
+    display: block;
+}
+
+.ip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.terminate-btn {
+    background: transparent;
+    border: 1px solid var(--slab-border);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.terminate-btn:hover {
+    background: var(--magma-dim);
+    /* Changed from full magma to dim magma */
+    border-color: var(--magma);
+    color: white;
+    box-shadow: 0 0 15px var(--magma-glow);
+}
+
+.empty-state {
+    padding: 40px;
+    text-align: center;
+    color: var(--text-secondary);
+    border: 1px dashed var(--slab-border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+/* Animation for entry */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: reveal-up 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes reveal-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Quartz Pulse Decoration */
+.quartz-node {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--magma);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--magma);
+    pointer-events: none;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .slab {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .action-zone {
+        width: 100%;
+        justify-content: space-between;
+        border-top: 1px solid var(--slab-border);
+        padding-top: 20px;
+    }
+
+    .location {
+        text-align: left;
+    }
+}
