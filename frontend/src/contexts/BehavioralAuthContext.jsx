@@ -93,7 +93,7 @@ export const BehavioralAuthProvider = ({ children }) => {
         }, 10000); // Check every 10 seconds
 
         return () => clearInterval(checkIdleInterval);
-    }, [isTracking, lastActivityTime, triggerReAuthentication]);
+    }, [isTracking, lastActivityTime, triggerReAuthentication, IDLE_TIMEOUT]);
 
     // Listen for user activity events
     useEffect(() => {

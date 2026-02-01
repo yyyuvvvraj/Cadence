@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import "./index.css";
 
 const SecurityIncidentReports = () => {
+  // eslint-disable-next-line no-unused-vars
   const [selectedIncident, setSelectedIncident] = useState(null);
   const [filteredIncidents, setFilteredIncidents] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -121,7 +122,7 @@ const SecurityIncidentReports = () => {
     }
 
     setFilteredIncidents(filtered);
-  }, [searchQuery, severityFilter, statusFilter]);
+  }, [searchQuery, severityFilter, statusFilter, mockIncidents]);
 
   return (
     <>

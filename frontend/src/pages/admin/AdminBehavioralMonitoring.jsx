@@ -3,7 +3,7 @@ import { useBehavioralAuth } from '../../contexts/BehavioralAuthContext';
 import './AdminBehavioralMonitoring.css';
 
 const AdminBehavioralMonitoring = () => {
-    const { verificationScore, riskLevel, anomalyHistory, getBehavioralSignature } = useBehavioralAuth();
+    const { anomalyHistory } = useBehavioralAuth();
 
     // Mock active sessions data
     const [activeSessions, setActiveSessions] = useState([
@@ -40,7 +40,7 @@ const AdminBehavioralMonitoring = () => {
     ]);
 
     const [selectedSession, setSelectedSession] = useState(null);
-    const [systemMetrics, setSystemMetrics] = useState({
+    const [systemMetrics] = useState({
         totalSessions: 3,
         averageScore: 73,
         anomalyRate: 33,
