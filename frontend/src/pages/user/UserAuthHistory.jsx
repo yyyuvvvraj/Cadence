@@ -6,7 +6,12 @@ const UserAuthHistory = () => {
   return (
     <PageTransition>
       <div className="user-page">
-        <h1>Authentication History</h1>
+        <div className="page-header">
+          <h1>Authentication History</h1>
+          <div className="page-subtitle">
+            Recent sign-ins and their trust indicators
+          </div>
+        </div>
 
         <table className="data-table">
           <thead>
@@ -23,15 +28,23 @@ const UserAuthHistory = () => {
               <td>Now</td>
               <td>Google OAuth</td>
               <td>Chrome · Windows</td>
-              <td>High</td>
-              <td>Success</td>
+              <td>
+                <span className="badge success">High</span>
+              </td>
+              <td>
+                <span className="badge success">Success</span>
+              </td>
             </tr>
             <tr>
               <td>Yesterday</td>
               <td>GitHub OAuth</td>
               <td>Chrome · Windows</td>
-              <td>Medium</td>
-              <td>Success</td>
+              <td>
+                <span className="badge neutral">Medium</span>
+              </td>
+              <td>
+                <span className="badge success">Success</span>
+              </td>
             </tr>
           </tbody>
         </table>

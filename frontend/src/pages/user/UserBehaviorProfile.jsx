@@ -6,27 +6,32 @@ const UserBehaviorProfile = () => {
   return (
     <PageTransition>
       <div className="user-page">
-        <h1>Behavioral Profile</h1>
+        <div className="page-header">
+          <h1>Behavioral Profile</h1>
+          <div className="page-subtitle">
+            Your stored biometric patterns and model status
+          </div>
+        </div>
 
         <div className="info-grid">
           <div className="info-card">
             <h3>Average Typing Speed</h3>
-            <p>220 ms / key</p>
+            <div className="info-value">220 ms / key</div>
           </div>
 
           <div className="info-card">
             <h3>Mouse Movement Style</h3>
-            <p>Linear & Consistent</p>
+            <div className="info-value">Linear · Consistent</div>
           </div>
 
           <div className="info-card">
             <h3>Session Duration</h3>
-            <p>45 minutes</p>
+            <div className="info-value">45 minutes</div>
           </div>
 
           <div className="info-card">
             <h3>Model Status</h3>
-            <p>Trained</p>
+            <div className="info-value">Trained</div>
           </div>
         </div>
 

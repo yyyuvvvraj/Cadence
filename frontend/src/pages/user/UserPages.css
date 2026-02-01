@@ -1,6 +1,26 @@
 .user-page {
-  padding: 40px;
+  padding: 32px;
   color: #eaeaea;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.page-subtitle {
+  color: rgba(234, 234, 234, 0.65);
+  font-size: 0.95rem;
 }
 
 .info-grid {
@@ -10,9 +30,29 @@
 }
 
 .info-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  padding: 18px;
   border-radius: 12px;
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  color: rgba(234, 234, 234, 0.9);
+}
+
+.info-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent, #00ff99);
 }
 
 .status-ok {
@@ -20,9 +60,12 @@
 }
 
 .alert-card {
-  padding: 20px;
+  padding: 16px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .alert-warning {
@@ -36,22 +79,52 @@
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.01);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .data-table th,
 .data-table td {
-  padding: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: left;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.success {
+  background: rgba(0, 255, 153, 0.12);
+  color: #00ff99;
+}
+.badge.warn {
+  background: rgba(255, 165, 0, 0.12);
+  color: #ffb84d;
+}
+.badge.neutral {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(234, 234, 234, 0.9);
 }
 
 .danger-btn {
-  margin-top: 30px;
-  padding: 12px 20px;
+  margin-top: 24px;
+  padding: 10px 16px;
   background: #ff4d4d;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .info-card {
@@ -62,7 +135,7 @@
 
 .info-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0, 255, 153, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 255, 153, 0.08);
 }
 
 .dash-card {
