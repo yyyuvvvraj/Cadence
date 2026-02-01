@@ -1,0 +1,74 @@
+.user-page {
+  padding: 40px;
+  color: #eaeaea;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.status-ok {
+  border-left: 4px solid #00ff99;
+}
+
+.alert-card {
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.alert-warning {
+  background: rgba(255, 165, 0, 0.15);
+}
+
+.alert-ok {
+  background: rgba(0, 255, 153, 0.15);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.danger-btn {
+  margin-top: 30px;
+  padding: 12px 20px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.info-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 255, 153, 0.15);
+}
+
+.dash-card {
+  transition: transform 0.3s ease;
+}
+
+.dash-card:hover {
+  transform: scale(1.03);
+}
