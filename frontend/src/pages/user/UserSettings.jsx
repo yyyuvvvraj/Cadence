@@ -8,16 +8,23 @@ const UserSettings = () => {
   return (
     <PageTransition>
       <div className="user-page">
-        <h1>User Settings & Privacy</h1>
+        <div className="page-header">
+          <h1>User Settings & Privacy</h1>
+          <div className="page-subtitle">
+            Control what behavioral data we collect
+          </div>
+        </div>
 
         <div className="info-card">
           <h3>Behavioral Monitoring</h3>
-          <p>Enabled</p>
+          <div className="info-value">Enabled</div>
         </div>
 
         <div className="info-card">
           <h3>Data Usage</h3>
-          <p>Used only for authentication purposes</p>
+          <div className="info-value">
+            Used only for authentication purposes
+          </div>
         </div>
 
         <button className="danger-btn" onClick={() => navigate("/login")}>
