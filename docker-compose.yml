@@ -1,0 +1,73 @@
+# =============================================
+#  Cadence - Docker Compose Configuration
+# =============================================
+#  This file defines 3 containers:
+#    1. frontend  → React app served by Nginx
+#    2. backend   → Node.js + Express API
+#    3. mongo     → MongoDB database
+#
+#  All 3 are on the same network so they
+#  can communicate using service names.
+# =============================================
+
+services:
+  # ─────────────────────────────────────────────
+  #  FRONTEND - React App (Nginx)
+  # ─────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cadence-frontend
+    ports:
+      - "3000:80" # localhost:3000 → nginx:80 inside container
+    depends_on:
+      - backend
+    networks:
+      - cadence-network
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────
+  #  BACKEND - Node.js + Express API
+  # ─────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cadence-backend
+    ports:
+      - "5000:5000" # localhost:5000 → container:5000
+    env_file:
+      - ./backend/.env # Load environment variables from .env file
+    depends_on:
+      - mongo
+    networks:
+      - cadence-network
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────
+  #  MONGODB - Database
+  # ─────────────────────────────────────────────
+  mongo:
+    image: mongo:7 # Official MongoDB 7 image
+    container_name: cadence-mongo
+    ports:
+      - "27017:27017" # localhost:27017 → container:27017
+    volumes:
+      - mongo-data:/data/db # Persist data across restarts
+    networks:
+      - cadence-network
+    restart: unless-stopped
+
+# ─────────────────────────────────────────────
+#  NETWORK - Connects all services together
+# ─────────────────────────────────────────────
+networks:
+  cadence-network:
+    driver: bridge
+
+# ─────────────────────────────────────────────
+#  VOLUME - Persists MongoDB data
+# ─────────────────────────────────────────────
+volumes:
+  mongo-data:
