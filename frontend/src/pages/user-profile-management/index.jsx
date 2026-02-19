@@ -6,6 +6,10 @@ import './index.css';
 const UserProfileManagement = () => {
   const [username, setUsername] = useState('USER');
   const [userRole, setUserRole] = useState('User');
+  const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
